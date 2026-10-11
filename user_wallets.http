@@ -1,0 +1,27 @@
+GET http://localhost:8080/api/v1/wallet?wallet_id=e2a5fbf4-70db-4ded-b264-a1d0aa362314
+Accept: application/json
+
+###
+POST http://localhost:8080/api/v1/wallet
+Content-Type: application/json
+
+{
+  "user_id": "99999999-9999-9999-9999-999999999999",
+  "amount": 500000,
+  "currency": "NGN"
+}
+
+###
+POST http://localhost:8080/api/v1/transfer
+Content-Type: application/json
+X-User-ID: 99999999-9999-9999-9999-999999999999
+X-Idempotency-key: 2222-XXX-WDCF
+
+{
+  "from_wallet_id": "e2a5fbf4-70db-4ded-b264-a1d0aa362314",
+  "to_wallet_id": "11111111-1111-1111-1111-111111111111",
+  "amount": 10000,
+  "reference": "REF-SUNDAY-003"
+}
+
+###
